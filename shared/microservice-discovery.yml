@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: microservice-discovery
+---
+spring:
+  profile: discrovery1
+server:
+  port: 8761
+eureka:
+  instance:
+    host: 39.108.13.46
+  server:
+    enable-self-perservation: false
+    evicetion-interval-timer-in-ms: 4000
+  client:
+    serviceUrl:
+      defaultZone: http://39.108.13.46:8762/eureka/,http://39.108.13.46:8763/eureka/
+
+
+---
+spring:
+  profile: discrovery2
+server:
+  port: 8762
+eureka:
+  instance:
+    host: 39.108.13.46
+  server:
+    enable-self-perservation: false
+    evicetion-interval-timer-in-ms: 4000
+  client:
+    serviceUrl:
+      defaultZone: http://39.108.13.46:8761/eureka/,http://39.108.13.46:8763/eureka/
+
+
+---
+spring:
+  profile: discrovery3
+server:
+  port: 8763
+eureka:
+  instance:
+    host: 39.108.13.46
+  server:
+    enable-self-perservation: false
+    evicetion-interval-timer-in-ms: 4000
+  client:
+    serviceUrl:
+      defaultZone: http://39.108.13.46:8761/eureka/,http://39.108.13.46:872/eureka/
